@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doppler Effect</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body ng-app="app.dopplerEffect">
+
+
+  <div ng-controller="DopplerEffectCtrl as de" layout="" layout-align="center center">
+
+    <md-content class="md-padding page-container" layout-xs="column" layout="row" flex="80">
+
+      <md-card class="page" flex="50">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Doppler Effect</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <p>Light from moving objects will appear to have different wavelengths depending on the relative motion of the source and the observer. </p>
+          <p>Observers looking at an object that is moving away from them see light that has a longer wavelength than it had when it was emitted (a redshift), while observers looking at an approaching source see light that is shifted to shorter wavelength
+            (a blueshift).</p>
+        </md-card-content>
+      </md-card>
+
+      <md-card class="page" flex="50">
+
+        <img src="star-small.png" ng-style="de.photoFilter" alt="">
+
+        <md-card-content>
+          <div layout="row">
+
+            <div flex="20" layout="" layout-align="center center">
+              <span class="md-body-1">Velocity (km/s)</span>
+            </div>
+
+            <md-input-container>
+              <input type="number" min="-100" max="100" limit-to="4" ng-model="de.value" ng-change="de.calculatePosition()">
+            </md-input-container>
+
+            <md-slider-container flex="100">
+                <md-slider min="{{ de.slider_min }}" max="{{ de.slider_max }}" ng-model="de.sliderVal" ng-change="de.calculateValue()" aria-label>
+              </md-slider>
+            </md-slider-container>
+
+          </div>
+        </md-card-content>
+      </md-card>
+
+    </md-content>
+
+  </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+  <script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
